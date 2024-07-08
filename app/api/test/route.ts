@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 
 export const maxDuration = 20;
+export const runtime = "edge";
 export async function GET(request: Request) {
   console.info("adkmaks");
 

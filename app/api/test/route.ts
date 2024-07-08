@@ -10,7 +10,7 @@ export async function GET(request: Request) {
       {
         method: "POST",
         headers: {
-          "IIQE-Key": `${process.env.IIQE_KEY}`,
+          "IIQE-Key": "pgH7QzFHJx4w46fI~5Uzi4RvtTwlEXp",
         },
         body: JSON.stringify({
           lng: "th",

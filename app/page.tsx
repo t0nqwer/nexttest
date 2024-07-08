@@ -10,12 +10,13 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetcher("/api").then((data) => {
-      console.log(data);
-    });
     const fetchData = async () => {
-      const response = await axios.get("/api");
-      console.log(response.data);
+      try {
+        const response = await axios.get("/api/test");
+        console.log(response.data);
+      } catch (error: any) {
+        console.log(error.data);
+      }
     };
     fetchData();
   }, []);

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { cn } from "./lib/cn";
+import axios from "axios";
 
 export default function Home() {
   const fetcher = async (url: string) => {
@@ -12,6 +13,11 @@ export default function Home() {
     fetcher("/api").then((data) => {
       console.log(data);
     });
+    const fetchData = async () => {
+      const response = await axios.get("/api");
+      console.log(response.data);
+    };
+    fetchData();
   }, []);
 
   const isTrue = true;

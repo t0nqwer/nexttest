@@ -4,9 +4,20 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   try {
-    const response = await fetch(`${process.env.url}`);
+    const response = await fetch(
+      `https://internalapiuat.oic.or.th/APIIIQE3/api/Home/GetNews`,
+      {
+        method: "POST",
+        headers: {
+          "IIQE-Key": `${process.env.IIQE_KEY}`,
+        },
+        body: JSON.stringify({
+          lng: "th",
+        }),
+      }
+    );
     const data = await response.json();
-    return NextResponse.json(data);
+    return new Response(JSON.stringify(data), {});
   } catch (error: any) {
     return NextResponse.json(
       {

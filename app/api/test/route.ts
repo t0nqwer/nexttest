@@ -29,6 +29,7 @@ export async function GET(request: Request) {
 
     return new Response(JSON.stringify(response), {});
   } catch (error: any) {
+    console.error(error);
     return NextResponse.json(
       {
         error: error.response.data,

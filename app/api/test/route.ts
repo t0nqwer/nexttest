@@ -1,9 +1,12 @@
 import axios from "axios";
+import { log } from "console";
 
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
+  console.info(request, "adkmaks");
+
   try {
     const response = await fetch(
       `https://internalapiuat.oic.or.th/APIIIQE3/api/Home/GetNews`,
@@ -17,6 +20,9 @@ export async function GET(request: Request) {
         }),
       }
     );
+
+    console.info(response);
+
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

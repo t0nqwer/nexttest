@@ -21,6 +21,13 @@ export async function GET(request: Request) {
       }),
     }
   );
+  const res = await axios.post(
+    "https://internalapiuat.oic.or.th/APIIIQE3/api/Home/GetNews",
+    {
+      lng: "th",
+    },
+    {}
+  );
 
   console.info(response);
   try {

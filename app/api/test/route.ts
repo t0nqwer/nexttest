@@ -23,10 +23,6 @@ export async function GET(request: Request) {
 
     console.info(response);
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
     return new Response(JSON.stringify(response), {});
   } catch (error: any) {
     console.error(error);

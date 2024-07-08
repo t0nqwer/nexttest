@@ -16,7 +16,11 @@ export async function GET(request: Request) {
         }),
       }
     );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
     const data = await response.json();
+
     return new Response(JSON.stringify(data), {});
   } catch (error: any) {
     return NextResponse.json(

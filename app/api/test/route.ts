@@ -29,6 +29,11 @@ export async function GET(request: Request) {
     {}
   );
 
+  const fefe = await fetch("https://dummyapi.online/api/movies");
+
+  console.info(fefe);
+  console.info(res);
+
   console.info(response);
   try {
     return new Response(JSON.stringify(response), {});

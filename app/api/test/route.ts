@@ -9,18 +9,25 @@ export const maxDuration = 20;
 export async function GET(request: Request) {
   console.info("adkmaks");
 
-  const response = await fetch(
-    `https://internalapiuat.oic.or.th/APIIIQE3/api/Home/GetNews`,
-    {
-      method: "POST",
-      headers: {
-        "IIQE-Key": "pgH7QzFHJx4w46fI~5Uzi4RvtTwlEXp",
+  const response = await fetch(`${process.env.IIQE_URL}/api/Home/GetNews`, {
+    method: "POST",
+    headers: {
+      "IIQE-Key": "pgH7QzFHJx4w46fI~5Uzi4RvtTwlEXp",
+    },
+    body: JSON.stringify({
+      lng: "th",
+    }),
+  }).catch((error) => {
+    console.error(error);
+    return NextResponse.json(
+      {
+        error: error.response.data,
+        message: error.message,
+        status: error.response.status,
       },
-      body: JSON.stringify({
-        lng: "th",
-      }),
-    }
-  );
+      { status: error.response.status, statusText: error.message }
+    );
+  });
   const res = await axios.post(
     "https://internalapiuat.oic.or.th/APIIIQE3/api/Home/GetNews",
     {

@@ -9,6 +9,9 @@ export const maxDuration = 20;
 // export const runtime = "edge";
 export async function GET(request: Request) {
   console.info("adkmaks");
+  const fefe = await fetch("https://dummyapi.online/api/movies");
+
+  console.info(fefe);
 
   const response = await fetch(`${process.env.IIQE_URL}/api/Home/GetNews`, {
     method: "POST",
@@ -37,9 +40,6 @@ export async function GET(request: Request) {
     {}
   );
 
-  const fefe = await fetch("https://dummyapi.online/api/movies");
-
-  console.info(fefe);
   console.info(res);
 
   console.info(response);
